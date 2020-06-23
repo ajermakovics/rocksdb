@@ -68,12 +68,12 @@ public class MergeTest {
              dbFolder.getRoot().getAbsolutePath())) {
       // writing (long)100 under key
       db.put("key".getBytes(), longToByteArray(100));
-      // merge (long)1 under key
-      db.merge("key".getBytes(), longToByteArray(1));
+      // merge (long)200 under key
+      db.merge("key".getBytes(), longToByteArray(200));
 
       final byte[] value = db.get("key".getBytes());
       final long longValue = longFromByteArray(value);
-      assertThat(longValue).isEqualTo(101);
+      assertThat(longValue).isEqualTo(300);
     }
   }
 
